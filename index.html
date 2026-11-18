@@ -532,7 +532,7 @@ setInterval(render,30000);
    </section>
    <section class="parent-card">
     <h2>Hei, vanhempi! 👋</h2>
-    <p class="parent-muted">Lapsen päivän tilanne. Avaa kortti nähdäksesi tarkemmat tiedot.</p>
+    <p class="parent-muted">Lapsen päivän tilanne.</p>
     <div class="parent-overview-grid">
      <button type="button" class="parent-overview-tile" data-open-parent-tab="pTasks"><span> Päivän tehtävät</span><strong id="overviewTasks">0 / 0</strong><span id="overviewTasksHint">Tehty</span></button>
      <button type="button" class="parent-overview-tile" data-open-parent-tab="pChores"><span> Tehdyt kotityöt</span><strong id="overviewChores">0</strong><span>Kuittausta tänään</span></button>
@@ -1087,7 +1087,7 @@ function renderChildProfiles(members){
   });
   if(activeChildUid) sel.value=activeChildUid;
   sel.disabled=kids.length===0;
-  const hint=$('childProfileStatus'); if(hint) hint.textContent=kids.length?`${kids.length} lapsiprofiilia yhdistetty. Kummankin tiedot tallentuvat erikseen.`:'Liitä ensimmäisen lapsen puhelin perhekoodilla.';
+  const hint=$('childProfileStatus'); if(hint) hint.textContent=kids.length?`${kids.length} `:'Liitä ensimmäisen lapsen puhelin perhekoodilla.';
   const codeRow=$('parentFamilyCodeInline'); const codeValue=$('parentFamilyCodeInlineValue');
   if(codeRow) codeRow.hidden=!(kids.length && familyCode && activeRole==='parent');
   if(codeValue) codeValue.textContent=familyCode||'';
