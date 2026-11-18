@@ -1086,7 +1086,8 @@ function renderChildProfiles(members){
   });
   if(activeChildUid) sel.value=activeChildUid;
   sel.disabled=kids.length===0;
-  const hint=$('childProfileStatus'); if(hint) hint.textContent=kids.length?`${kids.length} `:'Liitä ensimmäisen lapsen puhelin perhekoodilla.';
+  const hint=$('childProfileStatus');
+if(hint) hint.textContent=kids.length ? '' : 'Liitä ensimmäisen lapsen puhelin perhekoodilla.';
   const codeRow=$('parentFamilyCodeInline'); const codeValue=$('parentFamilyCodeInlineValue');
   if(codeRow) codeRow.hidden=!(kids.length && familyCode && activeRole==='parent');
   if(codeValue) codeValue.textContent=familyCode||'';
