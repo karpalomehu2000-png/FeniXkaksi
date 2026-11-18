@@ -1,0 +1,39 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "families": {
+      "$familyCode": {
+        ".read": "auth != null && data.child('members').child(auth.uid).exists()",
+        ".write": "auth != null && $familyCode.matches(/^[A-HJ-NP-Z2-9]{8}$/) && ((!data.exists() && newData.child('parentUid').val() === auth.uid && newData.child('members').child(auth.uid).val() === 'parent') || (data.exists() && data.child('parentUid').val() === auth.uid && data.child('members').child(auth.uid).val() === 'parent'))",
+        "parentUid": {
+          ".validate": "newData.isString() && newData.val() === newData.parent().child('members').child(newData.val()).val() && newData.parent().child('members').child(newData.val()).val() === 'parent'"
+        },
+        "createdAt": {
+          ".validate": "newData.isString()"
+        },
+        "members": {
+          "$uid": {
+            ".write": "auth != null && ((auth.uid === $uid && !data.exists() && newData.val() === 'child' && root.child('families').child($familyCode).child('parentUid').exists()) || (auth.uid === $uid && data.val() === 'child' && !newData.exists()))",
+            ".validate": "newData.val() === 'child' || (newData.val() === 'parent' && $uid === newData.parent().parent().child('parentUid').val())"
+          }
+        },
+        "state": {
+          ".write": "auth != null && root.child('families').child($familyCode).child('members').child(auth.uid).exists()"
+        },
+        "childStates": {
+          "$uid": {
+            ".write": "auth != null && ((auth.uid === $uid && root.child('families').child($familyCode).child('members').child(auth.uid).val() === 'child') || root.child('families').child($familyCode).child('parentUid').val() === auth.uid)",
+            ".validate": "newData.hasChildren()"
+          }
+        },
+        "childNames": {
+          "$uid": {
+            ".write": "auth != null && (auth.uid === $uid || root.child('families').child($familyCode).child('parentUid').val() === auth.uid) && root.child('families').child($familyCode).child('members').child($uid).val() === 'child'",
+            ".validate": "newData.isString() && newData.val().length <= 30"
+          }
+        }
+      }
+    }
+  }
+}

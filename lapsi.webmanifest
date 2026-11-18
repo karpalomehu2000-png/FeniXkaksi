@@ -1,0 +1,15 @@
+{
+  "name": "FeniX – minun päiväni",
+  "short_name": "FeniX lapsi",
+  "id": "/lapsi.html",
+  "start_url": "/lapsi.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8f5ff",
+  "theme_color": "#6d5ce8",
+  "lang": "fi",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
