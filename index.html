@@ -562,7 +562,7 @@ setInterval(render,30000);
      <div class="parent-formgrid">
       <div><label class="parent-label">Emoji</label><input class="parent-input" id="newTaskEmoji" value="⭐" maxlength="4"></div>
       <div><label class="parent-label">Tähdet (0 = ei tähtiä)</label><input class="parent-input" id="newTaskStars" type="number" min="0" max="20" value="0"></div>
-      <div><label class="parent-label" for="newTaskTime">Kellonaika (HH:MM)</label><input class="parent-input" id="newTaskTime" type="text" inputmode="numeric" maxlength="5" placeholder="19:00" autocomplete="off"></div>
+      <div><label class="parent-label" for="newTaskTime">Kellonaika (HH:MM)</label><input class="parent-input" id="newTaskTime" type="text" inputmode="text" maxlength="5" placeholder="19:00" autocomplete="off"></div>
       <div><label class="parent-label">Toistuvuus</label><select class="parent-input" id="newTaskRepeat"><option value="daily">Joka päivä</option><option value="weekdays">Koulupäivinä</option><option value="weekly">Kerran viikossa</option><option value="once">Vain tänään</option></select></div>
      </div>
      <label class="parent-check" style="display:flex;align-items:center;gap:10px;margin:12px 0;font-weight:800"><input id="newTaskNotify" type="checkbox" style="width:20px;height:20px;accent-color:#7956c9"> 🔔 Lähetä muistutus</label>
